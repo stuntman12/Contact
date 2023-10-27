@@ -10,7 +10,6 @@ class TableContactList: UITableViewController {
         if segue.identifier == "showInfo" {
             guard let InfoVC = segue.destination as? TableInfoContact else { return }
             InfoVC.person = sender as? Person
-            
         }
     }
 }
