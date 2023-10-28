@@ -17,8 +17,8 @@ struct Person {
         name + " " + female
     }
     
-        
-    }
+    
+}
 
 final class DataStore {
     let name = ["Zavet", "Daniil", "Dmitry", "Tim", "Artem", "Milan", "Milso"]
@@ -38,8 +38,8 @@ final class DataStore {
                          "762(2607)850-20-00",
                          "18(808)904-68-34",
                          "96(23)981-59-46"
-                         ]
-                         }
+    ]
+}
 
 extension Person {
     static func getPerson() -> [Person]{

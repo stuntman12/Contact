@@ -11,9 +11,6 @@ final class TableInfoContact: UITableViewController {
         
         navigationItem.title = person?.fullName
     }
-    
-
-    
 }
 
 extension TableInfoContact {
@@ -36,6 +33,7 @@ extension TableInfoContact {
             cell.contentConfiguration = content
             
             return cell
+            
         } else {
             
             content.text = person?.email

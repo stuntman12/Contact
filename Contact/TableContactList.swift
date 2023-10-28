@@ -5,7 +5,7 @@ import UIKit
 final class TableContactList: UITableViewController {
     
     let person = Person.getPerson()
-        
+            
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showInfo" {
             guard let InfoVC = segue.destination as? TableInfoContact else { return }
@@ -13,6 +13,7 @@ final class TableContactList: UITableViewController {
         }
     }
 }
+
 extension TableContactList {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -23,6 +24,7 @@ extension TableContactList {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableContact", for: indexPath)
         
         let person = person[indexPath.row]
+        
         var content = cell.defaultContentConfiguration()
         
         content.text = person.fullName
@@ -37,5 +39,6 @@ extension TableContactList {
         performSegue(withIdentifier: "showInfo", sender: person)
     }
 }
+
 
 

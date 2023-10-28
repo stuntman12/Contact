@@ -1,14 +1,16 @@
 
 import UIKit
 
+
 final class TableMenuContact: UITableViewController {
     
     var person = Person.getPerson()
     
+    
 }
 
 extension TableMenuContact {
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         person.count
     }
@@ -18,11 +20,7 @@ extension TableMenuContact {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if section < person.count {
-            return person.randomElement()?.fullName
-        }
-        return ""
+        person[section].fullName
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableinfo", for: indexPath)
@@ -31,9 +29,9 @@ extension TableMenuContact {
 
         if indexPath.row == 0 {
             
-            let number = person[indexPath.section]
+            let number = person[indexPath.section].number
                         
-            content.text = number.number
+            content.text = number
             content.image = UIImage(systemName: "phone")
             
             cell.contentConfiguration = content
@@ -42,14 +40,13 @@ extension TableMenuContact {
             
         } else {
             
-            let email = person[indexPath.section]
-            content.text = email.email
+            let email = person[indexPath.section].email
+            content.text = email
             content.image = UIImage(systemName: "envelope")
             
             cell.contentConfiguration = content
             
             return cell
         }
-        
     }
 }
