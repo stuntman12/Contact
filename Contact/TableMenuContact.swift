@@ -1,15 +1,10 @@
 
 import UIKit
 
-class TableMenuContact: UITableViewController {
+final class TableMenuContact: UITableViewController {
     
     var person = Person.getPerson()
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
 }
 
 extension TableMenuContact {

@@ -2,7 +2,7 @@
 import UIKit
 
 
-class TableInfoContact: UITableViewController {
+final class TableInfoContact: UITableViewController {
     
     var person: Person?
     

@@ -2,7 +2,7 @@
 import UIKit
 
 
-class TableContactList: UITableViewController {
+final class TableContactList: UITableViewController {
     
     let person = Person.getPerson()
         
