@@ -4,13 +4,7 @@ import UIKit
 
 final class TableInfoContact: UITableViewController {
     
-    var person: Person?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationItem.title = person?.fullName
-    }
+    var persons: [Person] = []
 }
 
 extension TableInfoContact {
@@ -25,23 +19,21 @@ extension TableInfoContact {
         
         var content = cell.defaultContentConfiguration()
         
+        let person = persons[indexPath.row]
+        
         if indexPath.row == 0 {
     
-            content.text = person?.number
+            content.text = person.number
             content.image = UIImage(systemName: "phone")
-            
-            cell.contentConfiguration = content
-            
-            return cell
-            
+        
         } else {
             
-            content.text = person?.email
+            content.text = person.email
             content.image = UIImage(systemName: "envelope")
             
-            cell.contentConfiguration = content
-            
-            return cell
         }
+        cell.contentConfiguration = content
+        
+        return cell
     }
 }

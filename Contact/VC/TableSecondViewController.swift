@@ -2,17 +2,15 @@
 import UIKit
 
 
-final class TableMenuContact: UITableViewController {
+final class TableSecondViewController: UITableViewController {
     
-    var person = Person.getPerson()
-    
-    
+    var persons: [Person] = []
 }
 
-extension TableMenuContact {
+extension TableSecondViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        person.count
+        persons.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -20,33 +18,24 @@ extension TableMenuContact {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        person[section].fullName
+        persons[section].fullName
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableinfo", for: indexPath)
         
+        let person = persons[indexPath.section]
+        
         var content = cell.defaultContentConfiguration()
 
         if indexPath.row == 0 {
-            
-            let number = person[indexPath.section].number
-                        
-            content.text = number
+            content.text = person.number
             content.image = UIImage(systemName: "phone")
-            
-            cell.contentConfiguration = content
-            
-            return cell
-            
         } else {
-            
-            let email = person[indexPath.section].email
-            content.text = email
+            content.text = person.email
             content.image = UIImage(systemName: "envelope")
-            
-            cell.contentConfiguration = content
-            
-            return cell
         }
+        cell.contentConfiguration = content
+
+        return cell
     }
 }
